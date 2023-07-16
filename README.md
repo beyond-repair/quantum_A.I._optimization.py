@@ -11,8 +11,7 @@ This project demonstrates the integration of quantum computing and artificial in
 ```bash
 git clone https://github.com/beyond-repair/quantum_A.I._optimization.py.git
 Install the required dependencies:
-bash
-Copy code
+
 pip install qiskit qiskit_optimization
 Usage
 Open the code file quantum_A.I._optimization.py in your preferred Python environment or editor.
@@ -21,8 +20,6 @@ Modify the optimization problem by adjusting the variable bounds, objective func
 
 Run the code:
 
-bash
-Copy code
 python quantum_optimization.py
 The code will execute the quantum circuit, update the AI agent, and print the final solution and objective value.
 Contributing
