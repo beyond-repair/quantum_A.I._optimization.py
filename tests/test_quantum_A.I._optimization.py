@@ -38,6 +38,10 @@ def test_vqe_solution(vqe_result):
 def test_vqe_obj_value(vqe_result):
     vqe_obj_value = vqe_result.fval
     assert isinstance(vqe_obj_value, float)
+    assert vqe_obj_value == 0.0
+    vqe_obj_value = vqe_result.fval
+    assert isinstance(vqe_obj_value, float)
+    assert vqe_obj_value == 0.0
 
 def test_action_space():
     action_space = [
