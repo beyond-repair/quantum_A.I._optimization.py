@@ -30,6 +30,10 @@ def test_vqe_solution(vqe_result):
     assert len(vqe_solution) == 2
     assert isinstance(vqe_solution[0], int)
     assert isinstance(vqe_solution[1], int)
+    vqe_solution = vqe_result.x
+    assert len(vqe_solution) == 2
+    assert isinstance(vqe_solution[0], int)
+    assert isinstance(vqe_solution[1], int)
 
 def test_vqe_obj_value(vqe_result):
     vqe_obj_value = vqe_result.fval
@@ -46,6 +50,17 @@ def test_action_space():
     assert all(isinstance(action, str) for action in action_space)
 
 def test_qnn_training(vqe_result):
+    vqe_solution = vqe_result.x
+    X = np.array([[vqe_solution[0], vqe_solution[1]]])
+    y = np.array([0])
+    quantum_instance = Aer.get_backend('qasm_simulator')
+    feature_map = EfficientSU2(2, reps=1)
+    ansatz = EfficientSU2(2, reps=1)
+    qnn = NeuralNetworkClassifier(TwoLayerQNN(2, feature_map, ansatz, quantum_instance=quantum_instance), TorchConnector(), epochs=10)
+    qnn.fit(X, y)
+    assert len(qnn.predictions) == 1
+    assert isinstance(qnn.predictions[0], int)
+    assert qnn.is_trained
     vqe_solution = vqe_result.x
     X = np.array([[vqe_solution[0], vqe_solution[1]]])
     y = np.array([0])
