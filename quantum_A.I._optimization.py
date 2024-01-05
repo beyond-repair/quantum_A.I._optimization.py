@@ -3,6 +3,7 @@ from qiskit import Aer
 from qiskit.algorithms import VQE
 from qiskit.algorithms.optimizers import COBYLA
 from qiskit.circuit.library import EfficientSU2
+# Add the import statement for TwoLayerQNN here
 from qiskit_machine_learning.algorithms import NeuralNetworkClassifier
 from qiskit_machine_learning.connectors import TorchConnector
 from qiskit_optimization import QuadraticProgram
@@ -39,7 +40,7 @@ action_space = [
 quantum_instance = Aer.get_backend('qasm_simulator')
 feature_map = EfficientSU2(2, reps=1)
 ansatz = EfficientSU2(2, reps=1)
-qnn = NeuralNetworkClassifier(TwoLayerQNN(2, feature_map, ansatz, quantum_instance=quantum_instance), TorchConnector(), epochs=10)
+qnn = NeuralNetworkClassifier(TwoLayerQNN(), TorchConnector(), epochs=10)
 
 # Train the model using the VQE result
 X = np.array([[vqe_solution[0], vqe_solution[1]]])
