@@ -16,6 +16,22 @@ problem.minimize(linear=[-6, -8], quadratic={('x', 'x'): 2, ('y', 'y'): 2, ('x',
 problem.linear_constraint(linear={'x': 1, 'y': 1}, sense='>=', rhs=5)
 
 # Solve the problem using VQE
+import unittest
+import numpy as np
+
+
+
+from quantum_A.I._optimization import (COBYLA, VQE, NeuralNetworkClassifier,TwoLayerQNN, action_space, problem, qnn, vqe, vqe_obj_value, vqe_optimizer,vqe_solution)
+
+
+# Define the optimization problem
+problem = QuadraticProgram()
+problem.binary_var('x')
+problem.binary_var('y')
+problem.minimize(linear=[-6, -8], quadratic={('x', 'x'): 2, ('y', 'y'): 2, ('x', 'y'): -1})
+problem.linear_constraint(linear={'x': 1, 'y': 1}, sense='>=', rhs=5)
+
+# Solve the problem using VQE
 vqe_optimizer = VQE(optimizer=COBYLA(maxiter=100), quantum_instance=Aer.get_backend('qasm_simulator'))
 vqe = MinimumEigenOptimizer(vqe_optimizer)
 vqe_result = vqe.solve(problem)
