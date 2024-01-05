@@ -58,7 +58,7 @@ feature_map = EfficientSU2(2, reps=1)
 ansatz = EfficientSU2(2, reps=1)
 qnn = NeuralNetworkClassifier(TwoLayerQNN(2, feature_map, ansatz, quantum_instance=quantum_instance), TorchConnector(), epochs=10)
 
-import pytest
+from quantum_A.I._optimization import X, predictions, y
 
 # Add a test for the quantum neural network classifier
 
@@ -76,7 +76,7 @@ print(f'The optimal solution is x = {vqe_solution[0]} and y = {vqe_solution[1]}'
 print(f'The minimum objective value is {vqe_obj_value}')
 X = np.array([[vqe_solution[0], vqe_solution[1]]])
 
-# Generate predictions using the trained model
+from quantum_A.I._optimization import X, predictions, y
 # Print the predictions
 # Generate predictions using the trained model
 
@@ -85,21 +85,31 @@ X = np.array([[vqe_solution[0], vqe_solution[1]]])
 
 # Print the predictions
 print("Predictions:")
-print(predictions)
+assert len(X) == 1
+assert len(y) == 1
+assert X.shape[1] == 2
+assert predictions.shape == (1, 1)
 qnn.fit(X, y)
 
 # Generate predictions using the trained model
+# Generate predictions using the trained model
+# Print the predictions
+
+# Print the predictions
+print("Predictions:")
+assert len(X) == 1
+assert len(y) == 1
+assert X.shape[1] == 2
+assert predictions.shape == (1, 1)
 predictions = qnn.predict(X)
 
 # Print the predictions
 print("Predictions:")
-print(predictions)
-predictions = qnn.predict(X)
-
-# Print the predictions
-print("Predictions:")
-print(predictions)
-y = np.array([0])
+assert len(X) == 1
+assert len(y) == 1
+assert X.shape[1] == 2
+assert predictions.shape == (1, 1)
+y_test = np.array([0])  # Test data for y
 qnn.fit(X, y)
 
 # Generate predictions using the trained model
@@ -110,5 +120,4 @@ print("Predictions:")
 print(predictions)
 
 # Print the final solution and objective value
-print(f'The optimal solution is x = {vqe_solution[0]} and y = {vqe_solution[1]}')
-print(f'The minimum objective value is {vqe_obj_value}')
+X_test = np.array([[vqe_solution[0], vqe_solution[1]]])  # Test data for X
