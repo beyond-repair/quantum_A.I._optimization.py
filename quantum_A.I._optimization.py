@@ -1,4 +1,19 @@
+from quantum_A.I._optimization import y
+from quantum_A.I._optimization import predictions
 import numpy as np
+import pytest
+from qiskit_optimization import QuadraticProgram
+from qiskit_optimization.algorithms import MinimumEigenOptimizer
+import pytest
+from qiskit_optimization import QuadraticProgram
+from qiskit_optimization.algorithms import MinimumEigenOptimizer
+import pytest
+import numpy as np
+from qiskit_optimization import QuadraticProgram
+from qiskit_optimization.algorithms import MinimumEigenOptimizer
+from qiskit_optimization import QuadraticProgram
+from qiskit_optimization.algorithms import MinimumEigenOptimizer
+import pytest
 from qiskit import Aer
 from qiskit.algorithms import VQE
 from qiskit.algorithms.optimizers import COBYLA
@@ -32,8 +47,10 @@ action_space = [
     'x += 1',
     'x -= 1',
     'y += 1',
-    'y -= 1',
+    'y -= 1'
 ]
+
+import pytest
 
 # Create a quantum neural network classifier
 quantum_instance = Aer.get_backend('qasm_simulator')
@@ -41,9 +58,49 @@ feature_map = EfficientSU2(2, reps=1)
 ansatz = EfficientSU2(2, reps=1)
 qnn = NeuralNetworkClassifier(TwoLayerQNN(2, feature_map, ansatz, quantum_instance=quantum_instance), TorchConnector(), epochs=10)
 
-# Train the model using the VQE result
+import pytest
+
+# Add a test for the quantum neural network classifier
+
+def test_qnn_classifier():
+    assert len(X) == 1
+    assert len(y) == 1
+    assert X.shape[1] == 2
+    assert predictions.shape == (1, 1)
+
+# Print the predictions
+# Print the final solution and objective value
+
+# Print the final solution and objective value
+print(f'The optimal solution is x = {vqe_solution[0]} and y = {vqe_solution[1]}')
+print(f'The minimum objective value is {vqe_obj_value}')
 X = np.array([[vqe_solution[0], vqe_solution[1]]])
-y = np.array([0])  # Assuming a single training example with class label 0
+
+# Generate predictions using the trained model
+# Print the predictions
+# Generate predictions using the trained model
+
+# Print the predictions
+print("Predictions:")
+print(predictions)
+
+# Print the predictions
+print("Predictions:")
+print(predictions)
+qnn.fit(X, y)
+
+# Generate predictions using the trained model
+predictions = qnn.predict(X)
+
+# Print the predictions
+print("Predictions:")
+print(predictions)
+predictions = qnn.predict(X)
+
+# Print the predictions
+print("Predictions:")
+print(predictions)
+y = np.array([0])
 qnn.fit(X, y)
 
 # Generate predictions using the trained model
