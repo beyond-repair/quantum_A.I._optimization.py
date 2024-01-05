@@ -5,6 +5,7 @@ from quantum_A.I._optimization import (COBYLA, VQE, Aer, EfficientSU2,
                                        NeuralNetworkClassifier,
                                        QuadraticProgram, TorchConnector,
                                        TwoLayerQNN)
+import quantum_A.I._optimization
 
 
 @pytest.fixture
