@@ -39,8 +39,8 @@ vqe_obj_value = vqe_result.fval
 
 # Print the VQE solution and objective value
 print("VQE Solution:")
-print(f"x = {vqe_solution[0]}, y = {vqe_solution[1]}")
-print(f"Objective Value: {vqe_obj_value}")
+
+
 
 # Define the action space for the AI agent
 action_space = [
@@ -81,8 +81,7 @@ X = np.array([[vqe_solution[0], vqe_solution[1]]])
 # Generate predictions using the trained model
 
 # Print the predictions
-print("Predictions:")
-print(predictions)
+
 
 # Print the predictions
 print("Predictions:")
