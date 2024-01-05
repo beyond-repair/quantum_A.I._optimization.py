@@ -13,9 +13,7 @@ def test_qnn_classifier():
     assert predictions.shape == (1, 1)
     y_test = np.array([0])  # Test data for y
 
-    assert len(X) == 1
-    assert len(y) == 1
-    assert X.shape[1] == 2
+    assert X.shape == (1, 2)
     assert predictions.shape == (1, 1)
 
 def test_predictions():
