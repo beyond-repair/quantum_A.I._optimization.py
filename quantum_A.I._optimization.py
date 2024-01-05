@@ -88,7 +88,7 @@ from quantum_A.I._optimization import X, y
 
 
 # Generate predictions using the trained model
-predictions = qnn.predict(X)
+
 
 # Print the predictions
 print("Predictions:")
