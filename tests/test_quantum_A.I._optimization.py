@@ -30,22 +30,40 @@ def test_vqe_solution(vqe_result):
     assert len(vqe_solution) == 2
     assert isinstance(vqe_solution[0], int)
     assert isinstance(vqe_solution[1], int)
+    vqe_solution = vqe_result.x
+    assert len(vqe_solution) == 2
+    assert isinstance(vqe_solution[0], int)
+    assert isinstance(vqe_solution[1], int)
 
 def test_vqe_obj_value(vqe_result):
     vqe_obj_value = vqe_result.fval
     assert isinstance(vqe_obj_value, float)
+    assert vqe_obj_value == 0.0
+    vqe_obj_value = vqe_result.fval
+    assert isinstance(vqe_obj_value, float)
+    assert vqe_obj_value == 0.0
 
-def test_action_space():
-    action_space = [
-        'x += 1',
-        'x -= 1',
-        'y += 1',
-        'y -= 1',
-    ]
+def test_action_space(action_space):
+    assert len(action_space) == 4
+    assert all(isinstance(action, str) for action in action_space)
     assert len(action_space) == 4
     assert all(isinstance(action, str) for action in action_space)
 
 def test_qnn_training(vqe_result):
+    vqe_solution = vqe_result.x
+    X = np.array([[vqe_solution[0], vqe_solution[1]]])
+    y = np.array([0])
+    quantum_instance = Aer.get_backend('qasm_simulator')
+    feature_map = EfficientSU2(2, reps=1)
+    ansatz = EfficientSU2(2, reps=1)
+    qnn = NeuralNetworkClassifier(TwoLayerQNN(2, feature_map, ansatz, quantum_instance=quantum_instance), TorchConnector(), epochs=10)
+    qnn.fit(X, y)
+    assert len(qnn.predictions) == 1
+    assert isinstance(qnn.predictions[0], int)
+    assert qnn.is_trained
+    assert len(qnn.predictions) == 1
+    assert isinstance(qnn.predictions[0], int)
+    assert qnn.is_trained
     vqe_solution = vqe_result.x
     X = np.array([[vqe_solution[0], vqe_solution[1]]])
     y = np.array([0])
@@ -64,5 +82,6 @@ def test_qnn_predictions(vqe_result):
     ansatz = EfficientSU2(2, reps=1)
     qnn = NeuralNetworkClassifier(TwoLayerQNN(2, feature_map, ansatz, quantum_instance=quantum_instance), TorchConnector(), epochs=10)
     qnn.predict(X)
+    y = np.array([0])
     assert len(qnn.predictions) == 1
     assert isinstance(qnn.predictions[0], int)
