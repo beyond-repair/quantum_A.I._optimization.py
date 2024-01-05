@@ -61,6 +61,9 @@ def test_qnn_training(vqe_result):
     assert len(qnn.predictions) == 1
     assert isinstance(qnn.predictions[0], int)
     assert qnn.is_trained
+    assert len(qnn.predictions) == 1
+    assert isinstance(qnn.predictions[0], int)
+    assert qnn.is_trained
     vqe_solution = vqe_result.x
     X = np.array([[vqe_solution[0], vqe_solution[1]]])
     y = np.array([0])
