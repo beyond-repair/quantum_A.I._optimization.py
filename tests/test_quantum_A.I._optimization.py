@@ -43,13 +43,9 @@ def test_vqe_obj_value(vqe_result):
     assert isinstance(vqe_obj_value, float)
     assert vqe_obj_value == 0.0
 
-def test_action_space():
-    action_space = [
-        'x += 1',
-        'x -= 1',
-        'y += 1',
-        'y -= 1',
-    ]
+def test_action_space(action_space):
+    assert len(action_space) == 4
+    assert all(isinstance(action, str) for action in action_space)
     assert len(action_space) == 4
     assert all(isinstance(action, str) for action in action_space)
 
