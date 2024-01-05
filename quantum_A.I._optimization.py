@@ -2,6 +2,7 @@ sweep/sweep_gha_fix_the_github_actions_run_fai_8
 from quantum_A.I._optimization import y
 from quantum_A.I._optimization import predictions
 import numpy as np
+from qiskit import Aer
 import pytest
 from qiskit_optimization import QuadraticProgram
 from qiskit_optimization.algorithms import MinimumEigenOptimizer
@@ -91,6 +92,15 @@ print(predictions)
 qnn.fit(X, y)
 
 # Generate predictions using the trained model
+def create_qnn_classifier(X, y, quantum_instance):
+    feature_map = EfficientSU2(2, reps=1)
+    ansatz = EfficientSU2(2, reps=1)
+    qnn = NeuralNetworkClassifier(TwoLayerQNN(2, feature_map, ansatz, quantum_instance=quantum_instance), TorchConnector(), epochs=10)
+    qnn.fit(X, y)
+    return qnn
+
+
+qnn = create_qnn_classifier(X, y, quantum_instance)
 predictions = qnn.predict(X)
 
 # Print the predictions
