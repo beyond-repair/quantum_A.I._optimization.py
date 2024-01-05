@@ -83,34 +83,9 @@ from quantum_A.I._optimization import X, y
 # Print the predictions
 
 
-# Print the predictions
-print("Predictions:")
-assert len(X) == 1
-assert len(y) == 1
-assert X.shape[1] == 2
-assert predictions.shape == (1, 1)
-qnn.fit(X, y)
 
-# Generate predictions using the trained model
-# Generate predictions using the trained model
-# Print the predictions
 
-# Print the predictions
-print("Predictions:")
-assert len(X) == 1
-assert len(y) == 1
-assert X.shape[1] == 2
-assert predictions.shape == (1, 1)
-predictions = qnn.predict(X)
 
-# Print the predictions
-print("Predictions:")
-assert len(X) == 1
-assert len(y) == 1
-assert X.shape[1] == 2
-assert predictions.shape == (1, 1)
-y_test = np.array([0])  # Test data for y
-qnn.fit(X, y)
 
 # Generate predictions using the trained model
 predictions = qnn.predict(X)
