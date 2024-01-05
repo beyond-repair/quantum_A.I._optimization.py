@@ -3,7 +3,7 @@ from qiskit import Aer
 from qiskit.algorithms import VQE
 from qiskit.algorithms.optimizers import COBYLA
 from qiskit.circuit.library import EfficientSU2
-from models import TwoLayerQNN
+TwoLayerQNN
 from qiskit_machine_learning.algorithms import NeuralNetworkClassifier
 from qiskit_machine_learning.connectors import TorchConnector
 from qiskit_optimization import QuadraticProgram
