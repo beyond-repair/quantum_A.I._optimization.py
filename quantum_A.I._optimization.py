@@ -1,3 +1,4 @@
+from relevant_file import TwoLayerQNN
 import numpy as np
 from qiskit import Aer
 from qiskit.algorithms import VQE
