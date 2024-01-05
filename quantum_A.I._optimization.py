@@ -76,7 +76,7 @@ print(f'The optimal solution is x = {vqe_solution[0]} and y = {vqe_solution[1]}'
 print(f'The minimum objective value is {vqe_obj_value}')
 X = np.array([[vqe_solution[0], vqe_solution[1]]])
 
-from quantum_A.I._optimization import X, predictions, y
+from quantum_A.I._optimization import X, y
 # Print the predictions
 # Generate predictions using the trained model
 
