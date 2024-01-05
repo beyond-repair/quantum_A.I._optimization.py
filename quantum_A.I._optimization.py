@@ -56,6 +56,7 @@ import pytest
 quantum_instance = Aer.get_backend('qasm_simulator')
 feature_map = EfficientSU2(2, reps=1)
 ansatz = EfficientSU2(2, reps=1)
+from relevant_file import TwoLayerQNN
 qnn = NeuralNetworkClassifier(TwoLayerQNN(2, feature_map, ansatz, quantum_instance=quantum_instance), TorchConnector(), epochs=10)
 
 import pytest
