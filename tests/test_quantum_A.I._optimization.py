@@ -82,5 +82,6 @@ def test_qnn_predictions(vqe_result):
     ansatz = EfficientSU2(2, reps=1)
     qnn = NeuralNetworkClassifier(TwoLayerQNN(2, feature_map, ansatz, quantum_instance=quantum_instance), TorchConnector(), epochs=10)
     qnn.predict(X)
+    y = np.array([0])
     assert len(qnn.predictions) == 1
     assert isinstance(qnn.predictions[0], int)
