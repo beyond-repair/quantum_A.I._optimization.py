@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from quantum_A.I._optimization import X, predictions, y
+from quantum_A.I._optimization import X, predictions, y, TwoLayerQNN
 
 
 def test_qnn_classifier():
