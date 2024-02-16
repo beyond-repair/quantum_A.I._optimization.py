@@ -21,3 +21,12 @@ def test_predictions():
 
     assert len(X) == 1
     assert predictions.shape == (1, 1)
+    assert np.array_equal(X, X_test)  # New assertion to test X values
+    assert np.array_equal(y, y_test)  # New assertion to test y values
+    assert np.array_equal(predictions, np.array([[0]])))  # New assertion to test predictions
+    assert np.array_equal(X, X_test)  # New assertion to test X values
+    assert np.array_equal(y, y_test)  # New assertion to test y values
+    assert np.array_equal(predictions, np.array([[0]])))  # New assertion to test predictions
+    assert np.array_equal(X, X_test)  # New assertion to test X values
+    assert np.array_equal(y, y_test)  # New assertion to test y values
+    assert np.array_equal(predictions, np.array([[0]])))  # New assertion to test predictions
