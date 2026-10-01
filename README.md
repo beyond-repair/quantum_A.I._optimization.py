@@ -1,3 +1,38 @@
+<div align="center">
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║   ATOMIC DREAM LABS  ·  BEYOND-REPAIR                        ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
+# Quantum A.I. Optimization
+
+### Qiskit sketch. Not a demonstrated quantum advantage.
+
+[![Lifecycle](https://img.shields.io/badge/●_ARCHIVE-64748b?style=for-the-badge&labelColor=0f0f23)](https://github.com/beyond-repair/ADL-Governance)
+[![Claim](https://img.shields.io/badge/Claim_0-22c55e?style=for-the-badge&labelColor=0f0f23)](https://github.com/beyond-repair/ADL-Governance/blob/main/docs/CLAIM_VALIDATION.md)
+[![Governance](https://img.shields.io/badge/ADL--Governance-7c3aed?style=for-the-badge&labelColor=0f0f23)](https://github.com/beyond-repair/ADL-Governance)
+
+```
+LIFECYCLE   ARCHIVE QUEUE
+CLAIM       0
+NOT CLAIMED profit · live trading · product
+```
+
+</div>
+
+---
+> **ARCHIVE QUEUE.** Historical only. No profit, deployment, or product claim.
+
+## ▌ STATUS
+
+Archive-queue under [ADL-Governance](https://github.com/beyond-repair/ADL-Governance). Do not use for live trading, deployment, or as a product.
+
+---
+
+## ▌ PRESERVED BODY
+
 # quantum_A.I._optimization.py
 This project combines quantum computing and artificial intelligence to solve an optimization problem. It utilizes the Qiskit library to create a quantum circuit that encodes the optimization problem and leverages quantum gates for problem encoding. The AI agent, implemented using the qiskit_optimization module, learns from the measurement outcomes of the quantum circuit. The agent's reward function is based on the evaluation of the optimization problem, and it chooses actions from a predefined action space to modify the variables. By iteratively running the circuit and updating the agent, the project aims to find the optimal solution for the given optimization problem. The code provides insights into the integration of advanced technologies and showcases their potential for solving complex optimization problems.
 # Quantum Optimization with AI
@@ -33,3 +68,14 @@ Qiskit - IBM's open-source quantum computing framework.
 Qiskit Optimization - Qiskit module for optimization problems.
 Contact
 For any questions or inquiries, please contact [williambrianware84@gmail.com].
+
+---
+
+<div align="center">
+
+**REWRITE · BUILD · TRANSCEND**
+
+**William (Brian) Ware** · [Atomic Dream Labs](https://github.com/beyond-repair)  
+Governing source: [ADL-Governance](https://github.com/beyond-repair/ADL-Governance) · [Claim levels 0–5](https://github.com/beyond-repair/ADL-Governance/blob/main/docs/CLAIM_VALIDATION.md)
+
+</div>
