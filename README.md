@@ -17,57 +17,91 @@
 ```
 LIFECYCLE   ARCHIVE QUEUE
 CLAIM       0
-NOT CLAIMED profit · live trading · product
+NOT CLAIMED profit · live trading · product · quantum advantage
 ```
 
 </div>
 
 ---
-> **ARCHIVE QUEUE.** Historical only. No profit, deployment, or product claim.
+> **ARCHIVE QUEUE.** Historical demo sketch. No profit, deployment, product, or quantum-advantage claim.
 
 ## ▌ STATUS
 
-Archive-queue under [ADL-Governance](https://github.com/beyond-repair/ADL-Governance). Do not use for live trading, deployment, or as a product.
+Archive-queue under [ADL-Governance](https://github.com/beyond-repair/ADL-Governance). Runnable educational demo only. Do not use for live trading, deployment, or as a product.
 
 ---
 
 ## ▌ PRESERVED BODY
 
-# quantum_A.I._optimization.py
-This project combines quantum computing and artificial intelligence to solve an optimization problem. It utilizes the Qiskit library to create a quantum circuit that encodes the optimization problem and leverages quantum gates for problem encoding. The AI agent, implemented using the qiskit_optimization module, learns from the measurement outcomes of the quantum circuit. The agent's reward function is based on the evaluation of the optimization problem, and it chooses actions from a predefined action space to modify the variables. By iteratively running the circuit and updating the agent, the project aims to find the optimal solution for the given optimization problem. The code provides insights into the integration of advanced technologies and showcases their potential for solving complex optimization problems.
 # Quantum Optimization with AI
 
-This project demonstrates the integration of quantum computing and artificial intelligence to solve an optimization problem. It utilizes the Qiskit library, a quantum computing framework, along with an AI agent to find the optimal solution for the given problem.
+This project demonstrates a small integration of quantum optimization and quantum machine learning with Qiskit community packages:
+
+1. Define a feasible two-variable **binary QuadraticProgram**.
+2. Solve it with **SamplingVQE** (variational path) and compare against **NumPyMinimumEigensolver**.
+3. Train a minimal **EstimatorQNN** classifier on a tiny dataset derived from the solved optimum.
+
+It is a Claim-0 archive sketch, not a production optimizer and not a claim of quantum advantage.
+
+## Requirements
+
+- Python 3.10+ (tested on 3.13 locally; CI matrix may use 3.9–3.11)
+- See `requirements.txt` for pinned Qiskit packages
 
 ## Installation
 
-1. Clone the repository:
-
 ```bash
 git clone https://github.com/beyond-repair/quantum_A.I._optimization.py.git
-Install the required dependencies:
+cd quantum_A.I._optimization.py
+python3 -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-pip install qiskit qiskit_optimization
-Usage
-Open the code file quantum_A.I._optimization.py in your preferred Python environment or editor.
+## Usage
 
-Modify the optimization problem by adjusting the variable bounds, objective function, and constraints in the code.
+```bash
+python quantum_A.I._optimization.py
+# equivalent:
+python -m quantum_ai_optimization
+```
 
-Run the code:
+The script prints the SamplingVQE solution, the NumPy reference, and in-sample QNN predictions.
 
-python quantum_optimization.py
-The code will execute the quantum circuit, update the AI agent, and print the final solution and objective value.
-Contributing
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+## Tests
 
-License
+```bash
+pytest -q
+```
+
+## Project layout
+
+| Path | Role |
+| --- | --- |
+| `quantum_A.I._optimization.py` | Original entrypoint name (thin shim) |
+| `quantum_ai_optimization.py` | Importable demo logic |
+| `tests/` | Pytest coverage for QP, VQE, and QNN paths |
+| `requirements.txt` | Pinned dependencies |
+
+## Notes on the repair
+
+- Original constraint `x + y >= 5` with binary variables was infeasible (max sum is 2). It is now `x + y >= 1`.
+- Deprecated `qiskit.Aer` / `qiskit.algorithms.VQE` / broken `TwoLayerQNN` imports were replaced with `SamplingVQE`, `NumPyMinimumEigensolver`, and `EstimatorQNN` + `NeuralNetworkClassifier`.
+
+## License
+
 This project is licensed under the MIT License.
 
-Acknowledgments
-Qiskit - IBM's open-source quantum computing framework.
-Qiskit Optimization - Qiskit module for optimization problems.
-Contact
-For any questions or inquiries, please contact [williambrianware84@gmail.com].
+## Acknowledgments
+
+- [Qiskit](https://www.ibm.com/quantum/qiskit)
+- [Qiskit Optimization](https://qiskit-community.github.io/qiskit-optimization/)
+- [Qiskit Machine Learning](https://qiskit-community.github.io/qiskit-machine-learning/)
+- [Qiskit Algorithms](https://qiskit-community.github.io/qiskit-algorithms/)
+
+## Contact
+
+For questions: williambrianware84@gmail.com
 
 ---
 
