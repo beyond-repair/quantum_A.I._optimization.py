@@ -1,9 +1,9 @@
 <div align="center">
 
 ```
-╔══════════════════════════════════════════════════════════════╗
+╔═════════════════════════════════════════════════════════════╗
 ║   ATOMIC DREAM LABS  ·  BEYOND-REPAIR                        ║
-╚══════════════════════════════════════════════════════════════╝
+╚═════════════════════════════════════════════════════════════╝
 ```
 
 # Quantum A.I. Optimization
@@ -15,7 +15,7 @@
 [![Governance](https://img.shields.io/badge/ADL--Governance-7c3aed?style=for-the-badge&labelColor=0f0f23)](https://github.com/beyond-repair/ADL-Governance)
 
 ```
-LIFECYCLE   ARCHIVE QUEUE
+LIFECYCLE   ARCHIVED (governance class; GitHub flag still false)
 CLAIM       0
 NOT CLAIMED profit · live trading · product · quantum advantage
 ```
@@ -23,11 +23,13 @@ NOT CLAIMED profit · live trading · product · quantum advantage
 </div>
 
 ---
-> **ARCHIVE QUEUE.** Historical demo sketch. No profit, deployment, product, or quantum-advantage claim.
+> **ARCHIVED class / archive queue.** Historical demo sketch. No profit, deployment, product, or quantum-advantage claim. GitHub archive flag is operator-only.
 
 ## ▌ STATUS
 
-Archive-queue under [ADL-Governance](https://github.com/beyond-repair/ADL-Governance). Runnable educational demo only. Do not use for live trading, deployment, or as a product.
+Archive-queue under [ADL-Governance](https://github.com/beyond-repair/ADL-Governance). Runnable educational demo only.
+
+CI note (Sweep-199): run `36855466073` on `29abd9cf` failed only on Python 3.9 install. Python 3.10 and 3.11 pytest jobs succeeded. The workflow matrix now matches that evidence.
 
 ---
 
@@ -41,11 +43,11 @@ This project demonstrates a small integration of quantum optimization and quantu
 2. Solve it with **SamplingVQE** (variational path) and compare against **NumPyMinimumEigensolver**.
 3. Train a minimal **EstimatorQNN** classifier on a tiny dataset derived from the solved optimum.
 
-It is a Claim-0 archive sketch, not a production optimizer and not a claim of quantum advantage.
+It is a Claim-0 archive sketch, not a production optimizer and not a claim of quantum advantage. The in-sample QNN score is not a generalization result.
 
 ## Requirements
 
-- Python 3.10+ (tested on 3.13 locally; CI matrix may use 3.9–3.11)
+- Python 3.10+ (CI matrix: 3.10 and 3.11)
 - See `requirements.txt` for pinned Qiskit packages
 
 ## Installation
@@ -81,12 +83,15 @@ pytest -q
 | `quantum_A.I._optimization.py` | Original entrypoint name (thin shim) |
 | `quantum_ai_optimization.py` | Importable demo logic |
 | `tests/` | Pytest coverage for QP, VQE, and QNN paths |
+| `docs/CLAIM_STATUS.md` | Claim level 0 |
+| `docs/CLASSIFICATION.md` | ARCHIVED class, flag still false |
 | `requirements.txt` | Pinned dependencies |
 
 ## Notes on the repair
 
 - Original constraint `x + y >= 5` with binary variables was infeasible (max sum is 2). It is now `x + y >= 1`.
 - Deprecated `qiskit.Aer` / `qiskit.algorithms.VQE` / broken `TwoLayerQNN` imports were replaced with `SamplingVQE`, `NumPyMinimumEigensolver`, and `EstimatorQNN` + `NeuralNetworkClassifier`.
+- Objective at `(1, 1)` is `-11`. That equality is classical arithmetic, not a measured quantum result.
 
 ## License
 
